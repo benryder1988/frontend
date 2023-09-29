@@ -4,6 +4,8 @@ import { RouterProvider } from "react-router-dom";
 import router from './routes/router';
 import { useAuth0 } from '@auth0/auth0-react';
 import PageLoader from './components/PageLoader/PageLoader';
+import { ThemeProvider } from '@mui/material';
+import theme from './theme/theme';
 
 const App = () => {
 
@@ -19,7 +21,9 @@ const App = () => {
 
   return (
       <React.StrictMode>
-        <RouterProvider router={router} />
+        <ThemeProvider theme={theme}>
+          <RouterProvider router={router} />
+        </ThemeProvider>
       </React.StrictMode>
   );
 };

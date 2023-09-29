@@ -18,17 +18,6 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <AuthenticationGuard component={Dashboard} />
-    },
-  {
-    path: "auth",
-    element: <Auth />,
-  },
-  {
-    path: "login",
-    element: 
-    <GoogleOAuthProvider clientId="772926450873-uqoardsnl7d5a6fqfqcpb3remu42b5ej.apps.googleusercontent.com">
-      <Login />
-    </GoogleOAuthProvider>,
   }
 
 ]);

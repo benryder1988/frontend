@@ -3,6 +3,8 @@
 const labels = {
     en: {
         title: "WedminPro",
+        titleFirst: "Wedmin",
+        titleSecond: "Pro",
         appbar: {
             product: "Product",
             features: "Features",

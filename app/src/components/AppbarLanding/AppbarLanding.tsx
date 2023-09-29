@@ -3,7 +3,7 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import { Typography } from '../../components/shared/material'
+import { Typography } from '../shared/material'
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
@@ -15,6 +15,12 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useAuth0 } from '@auth0/auth0-react';
 import labels from '../../constants/labels';
 import LoginButton from '../LoginButton/LoginButton';
+
+const navigation = [
+  { name: labels.en.appbar.product , href: '#' },
+  { name: labels.en.appbar.features, href: '#' },
+  { name: labels.en.appbar.pricing, href: '#' },
+]
 
 
 const ResponsiveAppBar = () => {
@@ -48,7 +54,25 @@ const ResponsiveAppBar = () => {
         <Toolbar className='w-full' disableGutters>
           <Box display="flex" className="w-full">
 
+            <Box display="flex" className="pt-2">  
+              <Typography textColor='colorGrey' textWeight='bold'>
+                {labels.en.titleFirst}
+              </Typography>
+              <Typography  textColor='colorDark' textWeight='bold'>
+                {labels.en.titleSecond}
+              </Typography>
+            </Box>
+
             <Box display="flex" gap={5} className="flex-grow justify-center pt-2">
+              {navigation.map((page, index) => (
+                <Typography 
+                  key={index}
+                  textColor='colorGrey'
+                  onClick={handleCloseNavMenu}
+                >
+                  {page.name}
+                </Typography>
+              ))}
             </Box>
           
             { isAuthenticated && user ?
